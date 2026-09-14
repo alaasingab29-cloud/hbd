@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,8 +5,7 @@
 
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Happy Birthday ❤️</title>
 
@@ -54,18 +52,14 @@
 
         <audio id="birthdayMusic" loop>
 
-            <source
-                src="music/birthday.mp3"
-                type="audio/mpeg">
+            <source src="music/birthday.mp3" type="audio/mpeg">
 
         </audio>
 
 
         <!-- Music Button -->
 
-        <button
-            id="musicBtn"
-            class="music-btn">
+        <button id="musicBtn" class="music-btn">
 
             🔊
 
@@ -187,9 +181,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo1.jpg"
-                        alt="Memory 1">
+                    <img src="images/photo1.jpg" alt="Memory 1">
 
                     <div class="photo-text">
 
@@ -211,9 +203,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo2.jpg"
-                        alt="Memory 2">
+                    <img src="images/photo2.jpg" alt="Memory 2">
 
                     <div class="photo-text">
 
@@ -235,9 +225,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo3.jpg"
-                        alt="Memory 3">
+                    <img src="images/photo3.jpg" alt="Memory 3">
 
                     <div class="photo-text">
 
@@ -259,9 +247,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo4.jpg"
-                        alt="Memory 4">
+                    <img src="images/photo4.jpg" alt="Memory 4">
 
                     <div class="photo-text">
 
@@ -283,9 +269,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo5.jpg"
-                        alt="Memory 5">
+                    <img src="images/photo5.jpg" alt="Memory 5">
 
                     <div class="photo-text">
 
@@ -307,9 +291,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo6.jpg"
-                        alt="Memory 6">
+                    <img src="images/photo6.jpg" alt="Memory 6">
 
                     <div class="photo-text">
 
@@ -331,9 +313,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo7.jpg"
-                        alt="Memory 7">
+                    <img src="images/photo7.jpg" alt="Memory 7">
 
                     <div class="photo-text">
 
@@ -355,9 +335,7 @@
 
                 <div class="photo">
 
-                    <img
-                        src="images/photo8.jpg"
-                        alt="Memory 8">
+                    <img src="images/photo8.jpg" alt="Memory 8">
 
                     <div class="photo-text">
 
@@ -450,6 +428,75 @@
         </section>
 
 
+        <!-- ================= COUNTDOWN & SECRET MESSAGE ================= -->
+        <section class="secret-section">
+
+            <p class="section-small">
+                COUNTDOWN TO SEPTEMBER 26TH
+            </p>
+
+            <h2>
+                Secret Birthday Surprise 🔒
+            </h2>
+
+            <!-- 1. العداد التنازلي (يظهر قبل يوم 25 سبتمبر) -->
+            <div id="countdown" class="countdown-box">
+                <div class="time-card">
+                    <span id="days">00</span>
+                    <p>Days</p>
+                </div>
+                <div class="time-card">
+                    <span id="hours">00</span>
+                    <p>Hours</p>
+                </div>
+                <div class="time-card">
+                    <span id="minutes">00</span>
+                    <p>Minutes</p>
+                </div>
+                <div class="time-card">
+                    <span id="seconds">00</span>
+                    <p>Seconds</p>
+                </div>
+            </div>
+
+            <!-- 2. البطاقة المغلقة قبل انتهاء الوقت -->
+            <div id="lockedCard" class="locked-card">
+                <div class="lock-icon">🔒</div>
+                <h3>This secret message is locked!</h3>
+                <p>Wait until September 26th to enter the passcode... ✨</p>
+            </div>
+
+            <!-- 3. مربع كلمة السر (يظهر فقط يوم 25 سبتمبر بعد انتهاء العداد) -->
+            <div id="passwordArea" class="locked-card" style="display: none;">
+                <div class="lock-icon">🔑</div>
+                <h3>It's Birthday Time! 🎉</h3>
+                <p>Enter the secret code to read your message:</p>
+
+                <div style="margin-top: 15px;">
+                    <input type="password" id="passInput" placeholder="Enter secret code..."
+                        style="padding: 10px 15px; border-radius: 20px; border: 1px solid #7d2233; text-align: center; outline: none;">
+                    <button id="passBtn" style="padding: 10px 20px; margin-left: 5px; font-size: 14px;">Unlock
+                        🔓</button>
+                </div>
+            </div>
+
+            <!-- 4. الرسالة السرية (تفتح بعد كتابة الباسوورد الصحيح يومها) -->
+            <div id="secretMessage" class="secret-message">
+                <div class="unlock-icon">🔓🎉</div>
+                <h2>كنتِ أجملَ صدفةٍ أهداني إيّاها القدر، وأقسى ما فيه أنّه لم يكتب لها أن تكتمل💗</h2>
+                <p>
+                    دودي انا حقيقي بأكنلك مشاعر طيبه طول عمري كان نفسي تقوليلي بس انا كمان انك عاوزاني وانا مكنتش هوعدك
+                    اه اني هعمل كل حاجه انا دلوقتي مقدرش عليها بس كنت هوعدك اني هفضل احاول عشانك لاخر يوم ف عمري بس
+                    نصيبنا كدا وفالاول وفالاخر انا بشكرك على كل لحظه حلوه عيشناها سوا وانا حقيقي ممتن لكل حاجه عملتيها
+                    فرحتني وأنا اسف على كل مره زعلتك فيها وان شاءالله تنجحي فكل حاجه أنتي بتتمنيها وربنا يوفقك ف كل اللي
+                    جاي وزي مابيقولوا يابخت من زار وخفف اتمني اكون كنت جزء حلو ولو بسيط ف حياتك واتمنى اكون كنت خفيف على قلبك وحقيقي أنتي انسانه كويسه وتستاهلي كل خير وان شاء الله لو ليا عمر ف علطول هكون فضهرك 💝
+                    <br><br>
+                    <b>@Lylo🐱‍👤💗</b>
+                </p>
+            </div>
+
+        </section>
+
 
         <!-- ================= FOOTER ================= -->
 
@@ -463,6 +510,13 @@
     </main>
 
 
+    <!-- Image Zoom Modal -->
+
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="imgFull" alt="Zoomed Photo">
+    </div>
+
 
     <!-- JavaScript -->
 
@@ -471,4 +525,3 @@
 </body>
 
 </html>
-

@@ -1,3 +1,4 @@
+
 // ================= OPEN WEBSITE =================
 
 let openBtn =
@@ -211,6 +212,8 @@ if (passBtn) {
         }
     };
 }
+
+
 // ================= OPEN WEBSITE =================
 
 let openBtn =
@@ -330,3 +333,97 @@ giftBtn.onclick = function () {
 
 };
 
+
+
+// ================= IMAGE MODAL (ZOOM) =================
+
+let modal = document.getElementById("imageModal");
+let modalImg = document.getElementById("imgFull");
+let closeModal = document.querySelector(".close-modal");
+let photos = document.querySelectorAll(".photo img");
+
+photos.forEach(function (img) {
+    img.onclick = function () {
+        if (modal) {
+            modal.style.display = "block";
+            modalImg.src = this.src;
+        }
+    };
+});
+
+if (closeModal) {
+    closeModal.onclick = function () {
+        modal.style.display = "none";
+    };
+}
+
+if (modal) {
+    modal.onclick = function (e) {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+}
+
+
+
+// ================= COUNTDOWN & SECRET MESSAGE LOGIC =================
+
+// تاريخ عيد الميلاد (25 سبتمبر 2026)
+const birthdayDate = new Date("September 25, 2026 00:00:00").getTime();
+
+// كلمة السر التي يجب كتابتها يوم عيد الميلاد لفتح الرسالة
+const secretPassword = "26/9/2026"; // 👈 يمكنك تغيير كلمة السر من هنا
+
+const countdownInterval = setInterval(function () {
+    const now = new Date().getTime();
+    const distance = birthdayDate - now;
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    const daysElem = document.getElementById("days");
+    const hoursElem = document.getElementById("hours");
+    const minutesElem = document.getElementById("minutes");
+    const secondsElem = document.getElementById("seconds");
+
+    if (daysElem) daysElem.innerText = days < 10 ? "0" + days : days;
+    if (hoursElem) hoursElem.innerText = hours < 10 ? "0" + hours : hours;
+    if (minutesElem) minutesElem.innerText = minutes < 10 ? "0" + minutes : minutes;
+    if (secondsElem) secondsElem.innerText = seconds < 10 ? "0" + seconds : seconds;
+
+    // عند انتهاء العداد (حلول يوم 25 سبتمبر)
+    if (distance <= 0) {
+        clearInterval(countdownInterval);
+
+        // إخفاء العداد والبطاقة المغلقة
+        const countdownBox = document.getElementById("countdown");
+        const lockedCard = document.getElementById("lockedCard");
+        const passwordArea = document.getElementById("passwordArea");
+
+        if (countdownBox) countdownBox.style.display = "none";
+        if (lockedCard) lockedCard.style.display = "none";
+
+        // إظهار مربع إدخال كلمة السر
+        if (passwordArea) passwordArea.style.display = "block";
+    }
+}, 1000);
+
+// التحقق من كلمة السر عند الضغط على زر Unlock
+const passBtn = document.getElementById("passBtn");
+const passInput = document.getElementById("passInput");
+
+if (passBtn) {
+    passBtn.onclick = function () {
+        if (passInput.value === secretPassword) {
+            // إخفاء مربع كلمة السر وإظهار الرسالة السرية
+            document.getElementById("passwordArea").style.display = "none";
+            document.getElementById("secretMessage").style.display = "block";
+        } else {
+            alert("Wrong passcode! Try again ❤️");
+            passInput.value = "";
+        }
+    };
+}
